@@ -1,4 +1,4 @@
-             %Mini projet ìEstimation des paramËtres du modËles thermodynamique UNIFAC appliquÈ en transfert de matiËreî
+             %Mini projet ‚ÄúEstimation des param√®tres du mod√®les thermodynamique UNIFAC appliqu√© en transfert de mati√®re‚Äù
 function y = Function(A)
 global q Dab0 Lam Phi TO TETA Eps ;
 R=[1.4311   0.92]; 
@@ -19,7 +19,8 @@ TETA=[(TET(1)*TO(1))/(TET(1)*TO(1)+TET(2)*TO(4)) (TET(2)*TO(2))/(TET(1)*TO(3)+TE
 
 Dab = exp((1-X).*log(Dab0(1))+X.*Dab0(2)+2.*(X.*log(X./Phi(1))+(1-X).*log((1-X)./Phi(2)))+...
     2.*X.*(1-X).*((Phi(1)./X).*(1-(Lam(1)./Lam(2)))+(Phi(2)./(1-X)).*(1-(Lam(2)./Lam(1))))+...
-    (1-X).*q(1).*((1-TETA(2).^2).*log(TO(2))+(1-TETA(4).^2)*TO(1).*log(TO(1)))+X.*q(2).*((1-TETA(1).^2).*log(TO(1))+(1-TETA(3).^2).*TO(2).*log(TO(2))));
+    (1-X).*q(1).*((1-TETA(2).^2).*log(TO(2))+(1-TETA(4).^2)*TO(1).*log(TO(1)))+...
+    X.*q(2).*((1-TETA(1).^2).*log(TO(1))+(1-TETA(3).^2).*TO(2).*log(TO(2))));
 y = abs(Dab-DabExpab);
 Eps = 100*y/DabExpab;
 end
